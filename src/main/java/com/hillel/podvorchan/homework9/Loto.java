@@ -26,8 +26,10 @@ public class Loto {
             for (int i = 0; i < 7; i++) {
                 if (first[i] == second[i]) count++;
             }
+            System.out.println("");
             System.out.println("Совпадений " + count);
         }
+        scanner.close();
     }static int CorrectInput(Scanner scanner) {
         while (true) {
             if (scanner.hasNextInt()) {
