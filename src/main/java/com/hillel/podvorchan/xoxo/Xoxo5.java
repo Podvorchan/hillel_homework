@@ -2,7 +2,7 @@ package com.hillel.podvorchan.xoxo;
 
 import java.util.Scanner;
 
-public class xoxo5 {
+public class Xoxo5 {
     public static final int ROW = 3, COLUMN = 3;
     public static int status;
     public static final int PROCESS = 0, DRAW = 1, WIN_X = 3, WIN_O = 4;
@@ -14,12 +14,15 @@ public class xoxo5 {
     public static void main(String[] args) {
         game();
         int restart;
-        while (true){
-        System.out.println("Хотите еще раз? Если да нажмите 1,если нет нажмите 2");
-        restart = re(scanner);
-        if (restart == 1) {
-           game();}}
-    }public static void fieldview() {
+        while (true) {
+            System.out.println("Хотите еще раз? Если да нажмите 1,если нет нажмите 2");
+            restart = re(scanner);
+            if (restart == 1) {
+                game();
+            }
+        }
+    }
+    public static void fieldview() {
         for (int i = 0; i < ROW; i++) {
             for (int j = 0; j < COLUMN; j++) {
                 System.out.print(field[i][j]);
@@ -33,7 +36,9 @@ public class xoxo5 {
             }
         }
         System.out.println();
-    }public static void start() {
+    }
+
+    public static void start() {
         for (int i = 0; i < ROW; i++) {
             for (int j = 0; j < COLUMN; j++) {
                 field[i][j] = EMPTY;
@@ -41,7 +46,8 @@ public class xoxo5 {
         }
         active = CROSS;
         fieldview();
-    }public static void player() {
+    }
+    public static void player() {
         boolean input = false;
         do {
             System.out.println("Игрок " + active + " введите ряд(1-3) и столбец (1-3),через пробел и нажмите enter");
@@ -56,7 +62,8 @@ public class xoxo5 {
             }
         }
         while (!input);
-    }public static String winview() {
+    }
+    public static String winview() {
         int coincidence;
         for (int i = 0; i < ROW; i++) {
             coincidence = 0;
@@ -79,15 +86,17 @@ public class xoxo5 {
                     return field[0][j];
                 }
             }
-            if (field[0][0] != EMPTY && field[0][0] == field[1][1] && field[0][0] == field[2][2]) {
-                return field[0][0];
-            }
-            if (field[0][2] != EMPTY && field[1][1] == field[0][2] && field[0][2] == field[2][0]) {
-                return field[0][2];
-            }
+
+        }
+        if (field[0][0] != EMPTY && field[0][0] == field[1][1] && field[0][0] == field[2][2]) {
+            return field[0][0];
+        }
+        if (field[0][2] != EMPTY && field[1][1] == field[0][2] && field[0][2] == field[2][0]) {
+            return field[0][2];
         }
         return EMPTY;
-    }public static boolean filling() {
+    }
+    public static boolean filling() {
         for (int i = 0; i < ROW; i++) {
             for (int j = 0; j < COLUMN; j++) {
                 if (field[i][j] == EMPTY) {
@@ -96,7 +105,8 @@ public class xoxo5 {
             }
         }
         return true;
-    }public static void analysis() {
+    }
+    public static void analysis() {
         String winner = winview();
         if (winner.equals(CROSS)) {
             status = WIN_X;
@@ -107,7 +117,8 @@ public class xoxo5 {
         } else {
             status = PROCESS;
         }
-    }static int re(Scanner scanner) {
+    }
+    static int re(Scanner scanner) {
         while (true) {
             if (scanner.hasNextInt()) {
                 int result = scanner.nextInt();
@@ -119,7 +130,8 @@ public class xoxo5 {
                 }
             }
         }
-    }public static void game() {
+    }
+    public static void game() {
         start();
         do {
             player();
