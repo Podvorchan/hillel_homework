@@ -2,12 +2,13 @@ package com.hillel.podvorchan.homework11;
 
 public class BurgerMain {
     public static void main(String[] args) {
-        Burger full = new Burger();
-
-        Burger light = new Burger(full.bun, full.meat, full.cheese, full.greens);
-
-        Burger meat2 = new Burger(light.bun, full.meat1, light.cheese, light.greens, full.mayonnaise);
+        Burger fullBurger = new Burger("Булочка", " Мясо ", " Сыр ", " Зелень ", " Майонез ");
+        System.out.println();
+        Burger burgerDietary = new Burger("Булочка", " Мясо ", " Сыр ", " Зелень ");
+        System.out.println();
+        Burger burgerMeatDouble = new Burger("Булочка", " Мясо ", " Сыр ", " Зелень ", " Майонез ", true);
 
 
     }
+
 }
